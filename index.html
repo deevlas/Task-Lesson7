@@ -47,8 +47,24 @@
             padding: 10px;
         }
 
-        div {
-            margin: 20px;
+        #carusel {
+            width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #carusel .pictures img {
+            width: 100%;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #carusel .pictures img:first-child {
+            display: block;
+        }
+
+        #carusel .buttons {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -83,10 +99,8 @@
 
 
 
-
+    <!-- Форма с кнопками -->
     <div id="ourTable" style="margin: 50px;"></div>
-
-
 
     <form action="" name="tableForm">
         <div>Количество рядов
@@ -100,6 +114,22 @@
         </div>
     </form>
     <button id="buttonTable" class="btn" style="margin-left: 50px;">Create table</button>
+
+
+    <div id="carusel">
+        <div style="list-style: none;" class="pictures">
+            <img src="/img/1.jpg" alt=""></img>
+            <img src="/img/2.jpg" alt=""></img>
+            <img src="/img/3.jpg" alt=""></img>
+            <img src="/img/4.jpg" alt=""></img>
+            <img src="/img/5.jpg" alt=""></img>
+        </div>
+        <div class="buttons">
+            <input type="button" value="Back" class="buttonOne">
+            <input type="button" value="Forward" class="buttonTwo">
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>

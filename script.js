@@ -144,6 +144,10 @@ secondInputTwoForm.addEventListener("click", function () {
 // Другий параметр визначає кліькіть ячеєк в кожній строці.
 // Третій параметр визначає елемент в який потрібно таблицю додати.
 
+// - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+// При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+// (Додатковачастина для завдання)
+
 let ourTable = document.querySelector('#ourTable')
 let tableForm = document.forms.tableForm
 console.log(tableForm)
@@ -173,32 +177,32 @@ buttonTable.addEventListener("click", function () {
     createTable(tableForm.colsTable.value, tableForm.rowsTable.value, ourTable, tableForm.textInRows.value)
 })
 
-
-
-
-
-// buttonTable.addEventListener('click', function () {
-//     createTable()
-// })
-
-
-// let buttonTable = document.querySelector("form button")
-// console.log(buttonTable)
-
-// buttonTable.addEventListener('click', function () {
-//     createTable()
-// })
-// createTable(3, 10, ourTable)
-
-// - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
-// При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
-// (Додатковачастина для завдання)
-
-
-
-
-
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+
+let btnBack = document.querySelector('#carusel .buttons .buttonOne')
+let btnForward = document.querySelector('#carusel .buttons .buttonTwo')
+let pictures = document.querySelectorAll('#carusel .pictures img')
+
+let i = 0
+btnBack.onclick = function () {
+    pictures[i].style.display = "none"
+    i--;
+    if (i < 0) {
+        i = pictures.length - 1
+    }
+    pictures[i].style.display = "block"
+}
+
+btnForward.onclick = function () {
+    pictures[i].style.display = "none"
+    i++;
+    if (i >= pictures.length) {
+        i = 0
+    }
+    pictures[i].style.display = "block"
+}
+
+
 
 
 // - Сворити масив не цензцрних слів.
