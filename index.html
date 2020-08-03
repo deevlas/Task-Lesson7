@@ -13,17 +13,93 @@
             color: aliceblue;
             margin-top: 50px;
         }
+
+        .main-menu {
+            border: 1px solid red;
+            width: 400px;
+            height: 500px;
+            background-color: darkorchid;
+            color: black
+        }
+
+        .menu {
+            height: 200px;
+            background-color: bisque;
+        }
+
+        .item {
+            display: none;
+
+        }
+
+        .btn {
+            width: 200px;
+            height: 50px;
+            margin-top: 20px;
+            color: black;
+            background-color: darkcyan;
+        }
+
+        #ourTable td {
+            width: 50px;
+            height: 50px;
+            border: 2px solid red;
+            padding: 10px;
+        }
+
+        div {
+            margin: 20px;
+        }
     </style>
 </head>
 
 <body>
+    <!-- <div class="main-menu">
+        <div class="ourText">
+            <div class="menu item"></div>
+        </div>
+    </div>
+
     <div id="myId" style="width: 300px; height: 500px; background-color: aqua;">Lorem ipsum dolor sit amet consectetur
         adipisicing elit. Tempore quae error unde tenetur saepe pariatur. Eius sequi voluptatibus modi animi!</div>
 
     <button id="myButton">Hello</button>
 
-    <input type="text" value="18" name="more 18">
+    <div class="inputs">
+        <input type="text" value="" name="more">
+        <input type="submit" value="OK" name="submit">
+    </div> -->
+    <form action="" name="oneForm">
+        <input type="text" value="Введите имя" name="firstInputForm" style="margin-right: 10px;">
+        <input type="text" value="Введите фамилию" name="secondInputForm">
+    </form>
 
+    <form action="" name="twoForm" style="margin-top: 10px;">
+        <input type="text" value="Введите имя отца" name="inputTwoForm" style="margin-right: 10px;">
+        <input type="text" value="Введите имя матери" name="inputSecondTwoForm">
+    </form>
+
+    <button class="btn" value="ОК" style="margin-left: 55px;">ОК</button>
+
+
+
+
+    <div id="ourTable" style="margin: 50px;"></div>
+
+
+
+    <form action="" name="tableForm">
+        <div>Количество рядов
+            <input type="text" value="" name="rowsTable">
+        </div>
+        <div>Количество ячеек
+            <input type="text" value="" name="colsTable">
+        </div>
+        <div>Текст в ячейке
+            <input type="text" value="" name="textInRows">
+        </div>
+    </form>
+    <button id="buttonTable" class="btn" style="margin-left: 50px;">Create table</button>
 
     <script src="script.js"></script>
 </body>

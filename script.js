@@ -1,44 +1,202 @@
 // - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
 
-let textId = document.getElementById('myId')
+// let textId = document.getElementById('myId')
 
-textId.onclick = () => {
-    textId.style.display = "none"
-}
+// textId.onclick = () => {
+//     textId.style.display = "none"
+// }
 
 
 // - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
 
-let button = document.getElementById("myButton")
+// let button = document.getElementById("myButton")
 
-button.onclick = () => {
-    button.style.display = "none"
-}
+// button.onclick = () => {
+//     button.style.display = "none"
+// }
 
 
 // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
 
+// let buttonInp = document.querySelectorAll(`input`)[0]
+// let butOk = document.querySelectorAll(`input`)[1]
+
+// butOk.onclick = () => {
+//     let input = +(buttonInp.value);
+//     let object = {
+//         textInput: input
+//     }
+//     console.log(object)
+//     if (buttonInp.value < 18) {
+//         alert("go at home")
+//     } else {
+//         console.log("U a Nomber 1")
+//     }
+//     buttonInp.value = ""
+// }
+
+// // - Создайте меню, которое раскрывается/сворачивается при клике
 
 
-// - Создайте меню, которое раскрывается/сворачивается при клике
+// let mainMenuElement = document.querySelector('.main-menu');
+// let menuElement = mainMenuElement.querySelector('.menu');
+
+
+// mainMenuElement.onclick = function () {
+//     menuElement.classList.toggle("item")
+
+// }
+
 
 // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 // Вывести список комментариев в документ, каждый в своем блоке.
 //  Добавьте каждому комментарию по кнопке для сворачивания его body.
 
+
+let lists = [{
+    titleOne: "Это название страницы",
+    body: "Это тело страницы"
+}, {
+    titleTwo: "Это название страницы",
+    body: "Это тело страницы"
+}, {
+    titleThree: "Это название страницы",
+    body: "Это тело страницы"
+}, {
+    titleFour: "Это название страницы",
+    body: "Это тело страницы"
+}]
+
+let blockDiv = document.createElement('div')
+document.body.appendChild(blockDiv)
+blockDiv.setAttribute('id', 'titles')
+
+for (const list of lists) {
+    let blockList = document.createElement('div')
+    let listH2 = document.createElement('h2')
+    let secondListDiv = document.createElement('div')
+    let button = document.createElement('button')
+
+    listH2.innerHTML = `${Object.keys(list)[0]}`
+    secondListDiv.innerHTML = `${list.body}`
+    button.classList.add('btn')
+    button.innerHTML = "Click me"
+
+    blockDiv.appendChild(blockList)
+    blockList.appendChild(listH2)
+    blockList.appendChild(secondListDiv)
+    blockList.appendChild(button)
+
+    button.addEventListener("click", function () {
+        listH2.classList.toggle('item')
+        secondListDiv.classList.toggle('item')
+    })
+}
+
 // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
 // Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
 // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
+
+let oneForma = document.forms.oneForm
+let twoForma = document.forms.twoForm
+// добавляю имена двум импутам
+let firstInputOneForm = oneForma.firstInputForm
+let secondInputOneForm = oneForma.secondInputForm
+
+
+
+let button = document.querySelector('button')
+
+button.addEventListener("click", function () {
+    for (const input of oneForm) {
+        console.log(input.value)
+    }
+})
+//функция для очистки поля
+firstInputOneForm.addEventListener("click", function () {
+    firstInputOneForm.value = ""
+})
+secondInputOneForm.addEventListener("click", function () {
+    secondInputOneForm.value = ""
+})
+
+// тоже самое для второй формы
+let firstInputTwoForm = twoForma.inputTwoForm
+let secondInputTwoForm = twoForma.inputSecondTwoForm
+
+button.addEventListener("click", function () {
+    for (const input of twoForm) {
+        console.log(input.value)
+    }
+})
+
+firstInputTwoForm.addEventListener("click", function () {
+    firstInputTwoForm.value = ""
+})
+
+secondInputTwoForm.addEventListener("click", function () {
+    secondInputTwoForm.value = ""
+})
+
 
 // - Створити функцію, яка генерує таблицю.
 // Перший аргумент визначає кількість строк.
 // Другий параметр визначає кліькіть ячеєк в кожній строці.
 // Третій параметр визначає елемент в який потрібно таблицю додати.
 
+let ourTable = document.querySelector('#ourTable')
+let tableForm = document.forms.tableForm
+console.log(tableForm)
+
+function createTable(colums, rows, elementDiv, text = "text") {
+    let table = document.createElement('table')
+
+    for (let i = 0; i < rows; i++) {
+        let tr = document.createElement('tr')
+        for (let j = 0; j < colums; j++) {
+            let td = document.createElement('td')
+            td.innerText = text
+            tr.appendChild(td)
+        }
+        table.appendChild(tr)
+    }
+    elementDiv.appendChild(table)
+
+}
+console.log(ourTable)
+// createTable(tableForm.colsTable.value, tableForm.rowsTable.value, ourForm, tableForm.textInRows.value)
+
+let buttonTable = document.querySelector("#buttonTable")
+
+
+buttonTable.addEventListener("click", function () {
+    createTable(tableForm.colsTable.value, tableForm.rowsTable.value, ourTable, tableForm.textInRows.value)
+})
+
+
+
+
+
+// buttonTable.addEventListener('click', function () {
+//     createTable()
+// })
+
+
+// let buttonTable = document.querySelector("form button")
+// console.log(buttonTable)
+
+// buttonTable.addEventListener('click', function () {
+//     createTable()
+// })
+// createTable(3, 10, ourTable)
 
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
+
+
+
+
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 
