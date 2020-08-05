@@ -66,6 +66,11 @@
         #carusel .buttons {
             margin-top: 20px;
         }
+
+        .btnCheck {
+            width: 80px;
+            height: 25px;
+        }
     </style>
 </head>
 
@@ -85,6 +90,8 @@
         <input type="text" value="" name="more">
         <input type="submit" value="OK" name="submit">
     </div> -->
+
+    <!-- Инпуты с кнопкой -->
     <form action="" name="oneForm">
         <input type="text" value="Введите имя" name="firstInputForm" style="margin-right: 10px;">
         <input type="text" value="Введите фамилию" name="secondInputForm">
@@ -115,7 +122,7 @@
     </form>
     <button id="buttonTable" class="btn" style="margin-left: 50px;">Create table</button>
 
-
+    <!-- Карусель -->
     <div id="carusel">
         <div style="list-style: none;" class="pictures">
             <img src="/img/1.jpg" alt=""></img>
@@ -130,6 +137,19 @@
         </div>
     </div>
 
+    <!-- Проверка слова -->
+    <div class="checkWords">
+        <input type="text" value="Введите слово" name="checkBadWords">
+        <button class="btnCheck">Check</button>
+    </div>
+
+
+    <!-- Проверка предложения -->
+
+    <div class="checkWordsSentence">
+        <input type="text" value="Введите предложение" name="checkBadWordsinSentence">
+        <button class="btnCheck">Check</button>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -202,9 +202,6 @@ btnForward.onclick = function () {
     pictures[i].style.display = "block"
 }
 
-
-
-
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
 // Якщо людина вводить слово і воно міститься в масиві не цензурних слів
@@ -212,16 +209,49 @@ btnForward.onclick = function () {
 // Перевірку робити при натисканні на кнопку
 
 
+let arrBadWords = ["fuck", "stupit", "bullshit", "fuckYou"]
+
+let badWords = document.querySelector(".checkWords input")
+let btnCheck = document.querySelector('.checkWords .btnCheck')
+
+btnCheck.addEventListener('click', function () {
+
+    for (const word of arrBadWords) {
+        if (word === badWords.value.toLowerCase()) {
+            alert("Вы использовали плохое слово")
+        }
+    }
+})
+
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
 // Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 // Кинути алерт з попередженням у випадку якщо містить.
 // Перевірку робити при натисканні на кнопку
 
+let secondArrayBadWords = ["fuck", "stupit", "bullshit", "fuckYou"]
+
+let badWordsInSentence = document.querySelector(".checkWordsSentence input")
+let btnCheckInSentence = document.querySelector('.checkWordsSentence .btnCheck')
+
+btnCheckInSentence.addEventListener('click', function () {
+    for (const word of secondArrayBadWords) {
+        let newArr = badWordsInSentence.value.split(" ")
+        for (const val of newArr) {
+            if (word === val) {
+                alert("Its bed word!!!")
+            }
+        }
+    }
+})
 
 
 // -- создать скрипт, который берет считывает на странице (rules.html) текст и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
 // При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
+
+
+
+
 
 // -- взять массив пользователей
 // let usersWithAddress = [
