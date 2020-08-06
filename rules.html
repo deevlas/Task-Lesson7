@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Fight Club</title>
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -47,6 +50,31 @@
     </div>
 
     <script>
+        let rules = document.querySelectorAll("h2")
+        let divka = document.createElement('div')
+        divka.setAttribute('class', 'menu')
+        document.body.appendChild(divka)
+
+        for (const rule of rules) {
+            let ruleDIV = document.querySelector('.menu')
+            rule.setAttribute('id', rule.parentElement.getAttribute('class'))
+            let textRule = document.createElement('p')
+
+
+            textRule.style.textAlign = "right"
+            textRule.style.fontSize = "10px"
+            textRule.style.display = "block"
+
+            let tegA = document.createElement("a")
+            tegA.innerHTML = rule.innerHTML
+            let href = "#" + rule.parentElement.getAttribute('class')
+            console.log(href)
+            tegA.setAttribute('href', href)
+
+            textRule.appendChild(tegA)
+            divka.appendChild(textRule)
+
+        }
         // Your awesome code here.....
     </script>
 </body>
